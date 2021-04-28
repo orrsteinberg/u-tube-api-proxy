@@ -1,0 +1,14 @@
+{
+  "name": "u-tube-api-proxy",
+  "version": "1.0.0",
+  "description": "API Proxy for U-Tube client web app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Orr Steinberg",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
