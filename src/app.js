@@ -4,9 +4,10 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 
-const app = express();
-
+const middleware = require("./middleware");
 const apiProxy = require("./apiProxy");
+
+const app = express();
 
 // Middleware
 app.use(morgan("dev"));
@@ -15,5 +16,9 @@ app.use(bodyParser.json());
 
 // Router
 app.use("/api", apiProxy);
+
+// More middleware
+app.use(middleware.errorHandler);
+app.use(middleware.unknownEndpoint);
 
 module.exports = app;
