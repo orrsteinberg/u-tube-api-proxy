@@ -4,6 +4,7 @@ const unknownEndpoint = (req, res) => {
   return res.status(404).json({ message: "Unknown endpoint" });
 };
 
+/* eslint-disable no-unused-vars */
 const errorHandler = (err, req, res, next) => {
   const error = {};
 
