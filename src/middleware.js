@@ -1,15 +1,13 @@
 const { parseErrorResponse } = require("./helpers");
 
-const unknownEndpoint = (req, res, next) => {
-  res.status(404);
-  const error = new Error("Unknown endpoint");
-  next(error);
+const unknownEndpoint = (req, res) => {
+  return res.status(404).json({ message: "Unknown endpoint" });
 };
 
 const errorHandler = (err, req, res, next) => {
   const error = {};
 
-  if (err.response) {
+  if (err.response.data) {
     const { statusCode, message } = parseErrorResponse(err.response);
     error.statusCode = statusCode;
     error.message = message;
