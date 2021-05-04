@@ -8,7 +8,7 @@ const parseErrorResponse = (errorResponse) => {
   if (statusCode === 403 && reason === "commentsDisabled") {
     message = "Comments have been disabled for this video";
   } else {
-    message = errorResponse.data.err.message;
+    message = errorResponse.data.error.message;
   }
 
   return { statusCode, message };
