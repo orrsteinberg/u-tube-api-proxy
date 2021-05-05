@@ -70,4 +70,22 @@ router.delete("/:path", async (req, res, next) => {
   }
 });
 
+// Specific subroutes
+router.post("/videos/rate", async (req, res, next) => {
+  try {
+    const options = {
+      method: "POST",
+      params: req.query,
+      headers: {
+        Authorization: req.headers.authorization,
+      },
+    };
+
+    const ytResponse = await request("/videos/rate", options);
+    return res.json(ytResponse.data);
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;
