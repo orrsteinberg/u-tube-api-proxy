@@ -23,9 +23,14 @@ const limiter = rateLimit({
   },
 });
 
+const corsOptions = {
+  origin: process.env.CLIENT_ORIGIN,
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
 // Middleware
-app.use(morgan("dev"));
-app.use(cors());
+app.use(morgan("common"));
+app.use(cors(corsOptions));
 app.use(limiter);
 app.use(bodyParser.json());
 
