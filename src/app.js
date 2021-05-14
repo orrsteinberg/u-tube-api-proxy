@@ -24,7 +24,7 @@ const limiter = rateLimit({
 });
 
 // Middleware
-app.use(morgan("dev"));
+app.use(morgan("common"));
 app.use(cors());
 app.use(limiter);
 app.use(bodyParser.json());
